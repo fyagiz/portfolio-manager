@@ -3,10 +3,10 @@ import InvestmentCard from "./InvestmentCard";
 
 /*
 1- InvestmentCard should be rendered.
-2- InvestmentCard should show investmentName
-3- InvestmentCard should show profit
-4- InvestmentCard should show profit percentage
-5- InvestmentCard should be pressed
+2- InvestmentCard should show investmentName.
+3- InvestmentCard should show profit.
+4- InvestmentCard should show profit percentage.
+5- InvestmentCard should be pressed.
 */
 
 describe("Card Component Unit Tests", () => {

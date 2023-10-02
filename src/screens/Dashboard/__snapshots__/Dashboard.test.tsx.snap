@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card Component Unit Tests should render correctly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#abc",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "borderWidth": 2,
+          "margin": 4,
+        },
+        {
+          "backgroundColor": "white",
+        },
+      ]
+    }
+    testID="pressable"
+  >
+    <Text
+      testID="investmentName"
+    >
+      Test Fund
+    </Text>
+    <Text
+      testID="profit"
+    >
+      5000 TL
+    </Text>
+    <Text
+      testID="profitPercentage"
+    >
+      % 
+      5
+    </Text>
+  </View>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": undefined,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      [
+        {
+          "borderWidth": 2,
+          "margin": 4,
+        },
+        {
+          "backgroundColor": "white",
+        },
+      ]
+    }
+    testID="pressable"
+  >
+    <Text
+      testID="investmentName"
+    >
+      Test Fund2
+    </Text>
+    <Text
+      testID="profit"
+    >
+      1000 TL
+    </Text>
+    <Text
+      testID="profitPercentage"
+    >
+      % 
+      6
+    </Text>
+  </View>
+</View>
+`;

@@ -1,13 +1,14 @@
 import { registerRootComponent } from "expo";
 import { StatusBar } from "expo-status-bar";
-import Dashboard from "./screens/Dashboard";
+import HeaderSafeContainer from "./components/HeaderSafeContainer";
+import MainScreen from "./screens/MainScreen";
 
 const App = () => {
   return (
-    <>
-      <Dashboard />
-      <StatusBar style="auto" />
-    </>
+    <HeaderSafeContainer>
+      <StatusBar style="dark" />
+      <MainScreen />
+    </HeaderSafeContainer>
   );
 };
 

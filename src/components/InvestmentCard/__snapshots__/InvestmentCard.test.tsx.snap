@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Card Component Unit Tests should render correctly 1`] = `
+exports[`InvestmentCard Component Unit Tests should render correctly 1`] = `
 <View
   accessibilityState={
     {

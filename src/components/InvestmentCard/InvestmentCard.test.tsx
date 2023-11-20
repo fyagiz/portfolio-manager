@@ -9,7 +9,7 @@ import InvestmentCard from "./InvestmentCard";
 5- InvestmentCard should be pressed.
 */
 
-describe("Card Component Unit Tests", () => {
+describe("InvestmentCard Component Unit Tests", () => {
   test("should render correctly", () => {
     const investmentCardComponent = render(<InvestmentCard investmentName="Test Fund" profit="5000 TL" profitPercentage="5" />);
     expect(investmentCardComponent).toMatchSnapshot();

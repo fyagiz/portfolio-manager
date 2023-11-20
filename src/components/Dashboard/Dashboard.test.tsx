@@ -7,7 +7,7 @@ import Dashboard from "./Dashboard";
 
 describe("Dashboard Component Unit Tests", () => {
   test("should render correctly", () => {
-    const investmentCardComponent = render(<Dashboard />);
-    expect(investmentCardComponent).toMatchSnapshot();
+    const dashboardComponent = render(<Dashboard />);
+    expect(dashboardComponent).toMatchSnapshot();
   });
 });

@@ -9,7 +9,7 @@ const InvestmentCard = (props: InvestmentCardProps) => {
       style={({ pressed }) => [
         styles.container,
         {
-          backgroundColor: pressed ? "red" : "white",
+          backgroundColor: pressed ? "#F9DDA4" : "#F3CC79",
         },
       ]}
       onPress={onPress}

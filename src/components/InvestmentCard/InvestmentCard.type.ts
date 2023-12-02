@@ -1,6 +1,6 @@
 import { GestureResponderEvent } from "react-native";
 
-export type InvestmentCardProps = {
+export type InvestmentCardPropsType = {
   investmentName: string;
   profit: string;
   profitPercentage: string;

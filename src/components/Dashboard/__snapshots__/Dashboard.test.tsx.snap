@@ -5,8 +5,7 @@ exports[`Dashboard Component Unit Tests should render correctly 1`] = `
   style={
     {
       "borderRadius": 4,
-      "borderWidth": 4,
-      "margin": 8,
+      "margin": 2,
     }
   }
 >
@@ -43,11 +42,12 @@ exports[`Dashboard Component Unit Tests should render correctly 1`] = `
     style={
       [
         {
-          "borderWidth": 2,
+          "borderRadius": 4,
           "margin": 4,
+          "padding": 4,
         },
         {
-          "backgroundColor": "white",
+          "backgroundColor": "#F3CC79",
         },
       ]
     }
@@ -103,11 +103,12 @@ exports[`Dashboard Component Unit Tests should render correctly 1`] = `
     style={
       [
         {
-          "borderWidth": 2,
+          "borderRadius": 4,
           "margin": 4,
+          "padding": 4,
         },
         {
-          "backgroundColor": "white",
+          "backgroundColor": "#F3CC79",
         },
       ]
     }
@@ -163,11 +164,12 @@ exports[`Dashboard Component Unit Tests should render correctly 1`] = `
     style={
       [
         {
-          "borderWidth": 2,
+          "borderRadius": 4,
           "margin": 4,
+          "padding": 4,
         },
         {
-          "backgroundColor": "white",
+          "backgroundColor": "#F3CC79",
         },
       ]
     }

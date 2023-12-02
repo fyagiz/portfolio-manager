@@ -5,12 +5,8 @@ exports[`HeaderSafe Component Unit Tests should render correctly 1`] = `
   style={
     [
       {
-        "alignContent": "center",
-        "backgroundColor": "#017387",
         "flex": 1,
-        "justifyContent": "center",
         "marginTop": 0,
-        "padding": 4,
       },
       undefined,
     ]

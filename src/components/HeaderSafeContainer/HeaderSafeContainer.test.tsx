@@ -16,6 +16,7 @@ describe("HeaderSafe Component Unit Tests", () => {
     );
     expect(headerSafeContainerComponent).toMatchSnapshot();
   });
+
   test("should display children component", () => {
     const headerSafeContainerComponent = render(
       <HeaderSafeContainer>

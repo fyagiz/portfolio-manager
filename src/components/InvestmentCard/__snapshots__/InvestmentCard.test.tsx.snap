@@ -34,11 +34,12 @@ exports[`InvestmentCard Component Unit Tests should render correctly 1`] = `
   style={
     [
       {
-        "borderWidth": 2,
+        "borderRadius": 4,
         "margin": 4,
+        "padding": 4,
       },
       {
-        "backgroundColor": "white",
+        "backgroundColor": "#F3CC79",
       },
     ]
   }

@@ -3,192 +3,274 @@
 exports[`MainScreen Unit Tests should render correctly 1`] = `
 <View
   style={
-    {
-      "borderRadius": 4,
-      "borderWidth": 4,
-      "margin": 8,
-    }
+    [
+      {
+        "backgroundColor": "#017387",
+        "flex": 1,
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
   }
 >
+  <Modal
+    animationType="slide"
+    hardwareAccelerated={false}
+    transparent={true}
+    visible={false}
+  />
   <View
-    accessibilityState={
-      {
-        "busy": undefined,
-        "checked": undefined,
-        "disabled": undefined,
-        "expanded": undefined,
-        "selected": undefined,
-      }
-    }
-    accessibilityValue={
-      {
-        "max": undefined,
-        "min": undefined,
-        "now": undefined,
-        "text": undefined,
-      }
-    }
-    accessible={true}
-    collapsable={false}
-    focusable={true}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
-      [
-        {
-          "borderWidth": 2,
-          "margin": 4,
-        },
-        {
-          "backgroundColor": "white",
-        },
-      ]
+      {
+        "flexDirection": "row",
+        "justifyContent": "flex-end",
+      }
     }
-    testID="pressable"
   >
-    <Text
-      testID="investmentName"
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignSelf": "flex-start",
+            "borderRadius": 4,
+            "margin": 4,
+            "maxWidth": 128,
+            "padding": 4,
+          },
+          {
+            "backgroundColor": "#F3CC79",
+          },
+        ]
+      }
+      testID="pressable"
     >
-      Test Fund
-    </Text>
-    <Text
-      testID="profit"
-    >
-      5000 TL
-    </Text>
-    <Text
-      testID="profitPercentage"
-    >
-      % 
-      5
-    </Text>
+      <Text
+        testID="buttonText"
+      >
+        Add Asset
+      </Text>
+    </View>
   </View>
   <View
-    accessibilityState={
-      {
-        "busy": undefined,
-        "checked": undefined,
-        "disabled": undefined,
-        "expanded": undefined,
-        "selected": undefined,
-      }
-    }
-    accessibilityValue={
-      {
-        "max": undefined,
-        "min": undefined,
-        "now": undefined,
-        "text": undefined,
-      }
-    }
-    accessible={true}
-    collapsable={false}
-    focusable={true}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
     style={
-      [
-        {
-          "borderWidth": 2,
-          "margin": 4,
-        },
-        {
-          "backgroundColor": "white",
-        },
-      ]
-    }
-    testID="pressable"
-  >
-    <Text
-      testID="investmentName"
-    >
-      Test Fund2
-    </Text>
-    <Text
-      testID="profit"
-    >
-      1000 TL
-    </Text>
-    <Text
-      testID="profitPercentage"
-    >
-      % 
-      6
-    </Text>
-  </View>
-  <View
-    accessibilityState={
       {
-        "busy": undefined,
-        "checked": undefined,
-        "disabled": undefined,
-        "expanded": undefined,
-        "selected": undefined,
+        "borderRadius": 4,
+        "margin": 2,
       }
     }
-    accessibilityValue={
-      {
-        "max": undefined,
-        "min": undefined,
-        "now": undefined,
-        "text": undefined,
-      }
-    }
-    accessible={true}
-    collapsable={false}
-    focusable={true}
-    onBlur={[Function]}
-    onClick={[Function]}
-    onFocus={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      [
-        {
-          "borderWidth": 2,
-          "margin": 4,
-        },
-        {
-          "backgroundColor": "white",
-        },
-      ]
-    }
-    testID="pressable"
   >
-    <Text
-      testID="investmentName"
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "borderRadius": 4,
+            "margin": 4,
+            "padding": 4,
+          },
+          {
+            "backgroundColor": "#F3CC79",
+          },
+        ]
+      }
+      testID="pressable"
     >
-      Test Fund3
-    </Text>
-    <Text
-      testID="profit"
+      <Text
+        testID="investmentName"
+      >
+        Test Fund
+      </Text>
+      <Text
+        testID="profit"
+      >
+        5000 TL
+      </Text>
+      <Text
+        testID="profitPercentage"
+      >
+        % 
+        5
+      </Text>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "borderRadius": 4,
+            "margin": 4,
+            "padding": 4,
+          },
+          {
+            "backgroundColor": "#F3CC79",
+          },
+        ]
+      }
+      testID="pressable"
     >
-      1500 TL
-    </Text>
-    <Text
-      testID="profitPercentage"
+      <Text
+        testID="investmentName"
+      >
+        Test Fund2
+      </Text>
+      <Text
+        testID="profit"
+      >
+        1000 TL
+      </Text>
+      <Text
+        testID="profitPercentage"
+      >
+        % 
+        6
+      </Text>
+    </View>
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "borderRadius": 4,
+            "margin": 4,
+            "padding": 4,
+          },
+          {
+            "backgroundColor": "#F3CC79",
+          },
+        ]
+      }
+      testID="pressable"
     >
-      % 
-      6
-    </Text>
+      <Text
+        testID="investmentName"
+      >
+        Test Fund3
+      </Text>
+      <Text
+        testID="profit"
+      >
+        1500 TL
+      </Text>
+      <Text
+        testID="profitPercentage"
+      >
+        % 
+        6
+      </Text>
+    </View>
   </View>
 </View>
 `;

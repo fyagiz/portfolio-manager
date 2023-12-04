@@ -1,15 +1,17 @@
 import { Pressable, Text } from "react-native";
 import { InvestmentCardPropsType } from "./InvestmentCard.type";
 import styles from "./InvestmentCard.style";
+import { Colors } from "../../utils/Colors";
 
 const InvestmentCard = (props: InvestmentCardPropsType) => {
   const { investmentName, profit, profitPercentage, onPress, testOnly_pressed } = props;
+  const { investmentCardColor, pressedInvestmentCardColor } = Colors;
   return (
     <Pressable
       style={({ pressed }) => [
         styles.container,
         {
-          backgroundColor: pressed ? "#F9DDA4" : "#F3CC79",
+          backgroundColor: pressed ? pressedInvestmentCardColor : investmentCardColor,
         },
       ]}
       onPress={onPress}

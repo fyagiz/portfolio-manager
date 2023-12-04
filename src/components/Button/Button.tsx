@@ -1,15 +1,17 @@
 import { Pressable, Text } from "react-native";
 import { ButtonPropsType } from "./Button.type";
 import styles from "./Button.style";
+import { Colors } from "../../utils/Colors";
 
 const Button = (props: ButtonPropsType) => {
   const { text, onPress, testOnly_pressed } = props;
+  const { buttonColor, pressedButtonColor } = Colors;
   return (
     <Pressable
       style={({ pressed }) => [
         styles.container,
         {
-          backgroundColor: pressed ? "#F9DDA4" : "#F3CC79",
+          backgroundColor: pressed ? pressedButtonColor : buttonColor,
         },
       ]}
       onPress={onPress}

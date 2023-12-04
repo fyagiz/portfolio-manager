@@ -1,8 +1,9 @@
 import { StyleSheet } from "react-native";
+import { styleConstants } from "../../utils/styleConstants";
 
 export default StyleSheet.create({
   container: {
-    borderRadius: 4,
-    margin: 2,
+    borderRadius: styleConstants.borderRadius,
+    margin: styleConstants.margin,
   },
 });

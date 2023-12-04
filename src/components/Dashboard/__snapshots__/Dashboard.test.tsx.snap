@@ -5,7 +5,7 @@ exports[`Dashboard Component Unit Tests should render correctly 1`] = `
   style={
     {
       "borderRadius": 4,
-      "margin": 2,
+      "margin": 4,
     }
   }
 >

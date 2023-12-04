@@ -1,90 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MainScreen Unit Tests should render correctly 1`] = `
+exports[`Portfolio Unit Tests should render correctly 1`] = `
 <View
   style={
     [
       {
         "backgroundColor": "#017387",
         "flex": 1,
-        "justifyContent": "center",
       },
       undefined,
     ]
   }
 >
-  <Modal
-    animationType="slide"
-    hardwareAccelerated={false}
-    transparent={true}
-    visible={false}
-  />
-  <View
-    style={
-      {
-        "flexDirection": "row",
-        "justifyContent": "flex-end",
-      }
-    }
-  >
-    <View
-      accessibilityState={
-        {
-          "busy": undefined,
-          "checked": undefined,
-          "disabled": undefined,
-          "expanded": undefined,
-          "selected": undefined,
-        }
-      }
-      accessibilityValue={
-        {
-          "max": undefined,
-          "min": undefined,
-          "now": undefined,
-          "text": undefined,
-        }
-      }
-      accessible={true}
-      collapsable={false}
-      focusable={true}
-      onBlur={[Function]}
-      onClick={[Function]}
-      onFocus={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        [
-          {
-            "alignSelf": "flex-start",
-            "borderRadius": 4,
-            "margin": 4,
-            "maxWidth": 128,
-            "padding": 4,
-          },
-          {
-            "backgroundColor": "#F3CC79",
-          },
-        ]
-      }
-      testID="pressable"
-    >
-      <Text
-        testID="buttonText"
-      >
-        Add Asset
-      </Text>
-    </View>
-  </View>
   <View
     style={
       {
         "borderRadius": 4,
-        "margin": 2,
+        "margin": 4,
       }
     }
   >

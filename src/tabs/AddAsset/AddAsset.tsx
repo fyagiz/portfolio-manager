@@ -1,6 +1,7 @@
-import { Text, TextInput, View } from "react-native";
+import { Keyboard, Pressable, Text, TextInput, TouchableWithoutFeedback, View } from "react-native";
 import styles from "./AddAsset.style";
 import { useState } from "react";
+import Button from "../../components/Button";
 
 const AddAsset = () => {
   const [stockName, setStockName] = useState<string>("");
@@ -18,7 +19,7 @@ const AddAsset = () => {
     setFunction(filteredText);
   };
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={() => Keyboard.dismiss()} android_disableSound>
       <View style={styles.insideContainer}>
         <View style={styles.textInputContainer}>
           <Text testID="stockNameText">Stock Name</Text>
@@ -32,8 +33,9 @@ const AddAsset = () => {
           <Text testID="comissionText">Commission</Text>
           <TextInput testID="comissionTextInput" onChangeText={text => handleFormatInput(text, setCommision)} value={commision} style={styles.textInputStyle} keyboardType="decimal-pad" />
         </View>
+        <Button text="Test Button" />
       </View>
-    </View>
+    </Pressable>
   );
 };
 

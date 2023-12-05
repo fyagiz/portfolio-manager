@@ -9,16 +9,14 @@ export default StyleSheet.create({
   insideContainer: {
     backgroundColor: Colors.backgroundColor,
     borderRadius: styleConstants.borderRadius,
-    borderWidth: styleConstants.borderRadius,
     padding: styleConstants.padding,
   },
   textInputContainer: {
-    borderWidth: 2,
     padding: styleConstants.padding,
   },
   textInputStyle: {
     borderRadius: styleConstants.borderRadius,
-    borderWidth: 2,
+    borderWidth: styleConstants.borderWidth,
     padding: styleConstants.padding,
   },
 });

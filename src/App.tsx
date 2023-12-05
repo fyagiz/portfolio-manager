@@ -27,6 +27,7 @@ const App = () => {
             },
             tabBarActiveTintColor: tabBarActiveTintColor,
             tabBarInactiveTintColor: tabBarInactiveTintColor,
+            tabBarHideOnKeyboard: true,
           }}
         >
           <Tab.Screen

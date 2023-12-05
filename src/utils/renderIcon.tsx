@@ -1,7 +1,14 @@
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
+import { RenderIconType } from "./utilTypes";
 
-const renderIcon = (iconName: keyof typeof Ionicons.glyphMap, color: string, size: number) => {
-  return <Ionicons name={iconName} color={color} size={size} />;
+export const renderIcon = (renderIconSpecs: RenderIconType) => {
+  const { iconType, iconName, color, size } = renderIconSpecs;
+  switch (iconType) {
+    case "Ionicons":
+      return <Ionicons name={iconName} color={color} size={size} />;
+    case "MaterialCommunityIcons":
+      return <MaterialCommunityIcons name={iconName} color={color} size={size} />;
+    default:
+      break;
+  }
 };
-
-export default renderIcon;

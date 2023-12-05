@@ -3,4 +3,5 @@ export const styleConstants = {
   padding: 4,
   margin: 4,
   maxWidth: 128,
+  borderWidth: 2,
 };

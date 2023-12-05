@@ -1,7 +1,7 @@
 import { ViewStyle } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../utils/navigationTypes";
+import { RootStackParamList } from "../../utils";
 
-export type PortfolioPropsType = NativeStackScreenProps<RootStackParamList, "Portfolio"> & {
+export type PortfolioPropsType = NativeStackScreenProps<typeof RootStackParamList, "Portfolio"> & {
   style?: ViewStyle;
 };

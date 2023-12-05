@@ -1,7 +1,7 @@
 import { Pressable, Text } from "react-native";
 import { InvestmentCardPropsType } from "./InvestmentCard.type";
 import styles from "./InvestmentCard.style";
-import { Colors } from "../../utils/Colors";
+import { Colors } from "../../utils";
 
 const InvestmentCard = (props: InvestmentCardPropsType) => {
   const { investmentName, profit, profitPercentage, onPress, testOnly_pressed } = props;

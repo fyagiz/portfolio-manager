@@ -7,6 +7,8 @@ import { Button } from "react-native";
 2- HeaderSafeContainer should render childrens.
 */
 
+jest.mock("react-native-safe-area-context", () => require("react-native-safe-area-context/jest/mock").default);
+
 describe("HeaderSafe Component Unit Tests", () => {
   test("should render correctly", () => {
     const headerSafeContainerComponent = render(

@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddAssetModal Unit Tests should render correctly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#017387",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "backgroundColor": "#017387",
+        "borderRadius": 4,
+        "borderWidth": 4,
+        "padding": 4,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "borderWidth": 2,
+          "padding": 4,
+        }
+      }
+    >
+      <Text
+        testID="stockNameText"
+      >
+        Stock Name
+      </Text>
+      <TextInput
+        keyboardType="ascii-capable"
+        onChangeText={[Function]}
+        style={
+          {
+            "borderRadius": 4,
+            "borderWidth": 2,
+            "padding": 4,
+          }
+        }
+        testID="stockNameTextInput"
+        value=""
+      />
+      <Text
+        testID="amountText"
+      >
+        Amount
+      </Text>
+      <TextInput
+        keyboardType="number-pad"
+        onChangeText={[Function]}
+        style={
+          {
+            "borderRadius": 4,
+            "borderWidth": 2,
+            "padding": 4,
+          }
+        }
+        testID="amountTextInput"
+        value=""
+      />
+      <Text
+        testID="priceText"
+      >
+        Price
+      </Text>
+      <TextInput
+        keyboardType="decimal-pad"
+        onChangeText={[Function]}
+        style={
+          {
+            "borderRadius": 4,
+            "borderWidth": 2,
+            "padding": 4,
+          }
+        }
+        testID="priceTextInput"
+        value=""
+      />
+      <Text
+        testID="comissionText"
+      >
+        Commission
+      </Text>
+      <TextInput
+        keyboardType="decimal-pad"
+        onChangeText={[Function]}
+        style={
+          {
+            "borderRadius": 4,
+            "borderWidth": 2,
+            "padding": 4,
+          }
+        }
+        testID="comissionTextInput"
+        value=""
+      />
+      <Text
+        testID="comissionText"
+      >
+        Commission
+      </Text>
+      <TextInput
+        keyboardType="decimal-pad"
+        onChangeText={[Function]}
+        style={
+          {
+            "borderRadius": 4,
+            "borderWidth": 2,
+            "padding": 4,
+          }
+        }
+        testID="comissionTextInput"
+        value=""
+      />
+    </View>
+  </View>
+</View>
+`;

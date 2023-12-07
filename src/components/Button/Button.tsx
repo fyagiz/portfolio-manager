@@ -4,7 +4,7 @@ import styles from "./Button.style";
 import { Colors } from "../../utils";
 
 const Button = (props: ButtonPropsType) => {
-  const { text, onPress, testOnly_pressed } = props;
+  const { text, onPress, testOnly_pressed, containerStyle, textStyle } = props;
   const { buttonColor, pressedButtonColor } = Colors;
   return (
     <Pressable
@@ -13,12 +13,15 @@ const Button = (props: ButtonPropsType) => {
         {
           backgroundColor: pressed ? pressedButtonColor : buttonColor,
         },
+        containerStyle,
       ]}
       onPress={onPress}
       testID="pressable"
       testOnly_pressed={testOnly_pressed}
     >
-      <Text testID="buttonText">{text}</Text>
+      <Text testID="buttonText" style={textStyle}>
+        {text}
+      </Text>
     </Pressable>
   );
 };

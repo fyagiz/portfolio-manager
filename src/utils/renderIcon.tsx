@@ -1,5 +1,5 @@
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
-import { RenderIconType } from "./utilTypes";
+import { RenderIconType } from "./util.type";
 
 export const renderIcon = (renderIconSpecs: RenderIconType) => {
   const { iconType, iconName, color, size } = renderIconSpecs;
@@ -9,6 +9,6 @@ export const renderIcon = (renderIconSpecs: RenderIconType) => {
     case "MaterialCommunityIcons":
       return <MaterialCommunityIcons name={iconName} color={color} size={size} />;
     default:
-      break;
+      return <MaterialCommunityIcons name="map-marker-question" size={24} color="black" />;
   }
 };

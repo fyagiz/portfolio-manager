@@ -43,6 +43,7 @@ exports[`Button Component Unit Tests should render correctly 1`] = `
       {
         "backgroundColor": "#F3CC79",
       },
+      undefined,
     ]
   }
   testID="pressable"

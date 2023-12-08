@@ -5,6 +5,19 @@ import AddAsset from "./AddAsset";
 1- AddAsset should be rendered
 */
 
+const mockedNavigate = jest.fn();
+
+jest.mock("@react-navigation/native", () => {
+  const actualNav = jest.requireActual("@react-navigation/native");
+  return {
+    ...actualNav,
+    useNavigation: () => ({
+      navigate: mockedNavigate,
+      addListener: jest.fn(),
+    }),
+  };
+});
+
 describe("AddAssetModal Unit Tests", () => {
   test("should render correctly", () => {
     const addAssetModal = render(<AddAsset />);

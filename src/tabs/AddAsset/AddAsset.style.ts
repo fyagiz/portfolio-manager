@@ -5,7 +5,6 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.backgroundColor,
-    justifyContent: "center",
   },
   insideContainer: {
     backgroundColor: Colors.backgroundColor,

@@ -5,4 +5,5 @@ module.exports = {
     quotes: [1, "double"],
     "object-curly-spacing": [2, "always"],
   },
+  ignorePatterns: ["coverage/*"],
 };

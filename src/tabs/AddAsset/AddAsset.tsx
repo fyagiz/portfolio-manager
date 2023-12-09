@@ -1,4 +1,4 @@
-import { Keyboard, KeyboardAvoidingView, Platform, Pressable, Text, TextInput, View } from "react-native";
+import { Keyboard, Pressable, Text, TextInput, View } from "react-native";
 import styles from "./AddAsset.style";
 import { useCallback, useEffect, useState } from "react";
 import Button from "../../components/Button";
@@ -66,52 +66,50 @@ const AddAsset = () => {
     }
   };
   return (
-    <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : "height"}>
-      <Pressable style={styles.container} onPress={() => Keyboard.dismiss()} android_disableSound>
-        <View style={styles.insideContainer}>
-          <View style={styles.textInputContainer}>
-            <Text testID="stockNameText">Stock Name</Text>
-            <TextInput
-              testID="stockNameTextInput"
-              onChangeText={newValue => handleFormatInput(newValue, setStockName, "stockName")}
-              value={stockName}
-              style={styles.textInputStyle}
-              keyboardType="default"
-              maxLength={4}
-            />
-            <Text testID="amountText">Amount</Text>
-            <TextInput
-              testID="amountTextInput"
-              onChangeText={newValue => handleFormatInput(newValue, setAmount, "amount")}
-              value={amount}
-              style={styles.textInputStyle}
-              keyboardType="number-pad"
-            />
-            <Text testID="priceText">Price</Text>
-            <TextInput
-              testID="priceTextInput"
-              onChangeText={newValue => handleFormatInput(newValue, setPrice, "price")}
-              value={price}
-              style={styles.textInputStyle}
-              keyboardType="decimal-pad"
-            />
-            <Text testID="comissionText">Commission</Text>
-            <TextInput
-              testID="comissionTextInput"
-              onChangeText={newValue => handleFormatInput(newValue, setCommision, "price")}
-              value={commision}
-              style={styles.textInputStyle}
-              keyboardType="decimal-pad"
-            />
-          </View>
-          <View style={styles.buttonContainer}>
-            <View>
-              <Button text="Add" containerStyle={styles.buttonStyle} />
-            </View>
+    <Pressable style={styles.container} onPress={() => Keyboard.dismiss()} android_disableSound>
+      <View style={styles.insideContainer}>
+        <View style={styles.textInputContainer}>
+          <Text testID="stockNameText">Stock Name</Text>
+          <TextInput
+            testID="stockNameTextInput"
+            onChangeText={newValue => handleFormatInput(newValue, setStockName, "stockName")}
+            value={stockName}
+            style={styles.textInputStyle}
+            keyboardType="default"
+            maxLength={4}
+          />
+          <Text testID="amountText">Amount</Text>
+          <TextInput
+            testID="amountTextInput"
+            onChangeText={newValue => handleFormatInput(newValue, setAmount, "amount")}
+            value={amount}
+            style={styles.textInputStyle}
+            keyboardType="number-pad"
+          />
+          <Text testID="priceText">Price</Text>
+          <TextInput
+            testID="priceTextInput"
+            onChangeText={newValue => handleFormatInput(newValue, setPrice, "price")}
+            value={price}
+            style={styles.textInputStyle}
+            keyboardType="decimal-pad"
+          />
+          <Text testID="comissionText">Commission</Text>
+          <TextInput
+            testID="comissionTextInput"
+            onChangeText={newValue => handleFormatInput(newValue, setCommision, "price")}
+            value={commision}
+            style={styles.textInputStyle}
+            keyboardType="decimal-pad"
+          />
+        </View>
+        <View style={styles.buttonContainer}>
+          <View>
+            <Button text="Add" containerStyle={styles.buttonStyle} />
           </View>
         </View>
-      </Pressable>
-    </KeyboardAvoidingView>
+      </View>
+    </Pressable>
   );
 };
 

@@ -1,4 +1,4 @@
-export const Colors = {
+const COLOR = {
   backgroundColor: "#017387",
   headerColor: "#017387",
   investmentCardColor: "#F3CC79",
@@ -9,3 +9,5 @@ export const Colors = {
   tabBarActiveTintColor: "#00FFFF",
   tabBarInactiveTintColor: "#FFFFFF",
 };
+
+export default COLOR;

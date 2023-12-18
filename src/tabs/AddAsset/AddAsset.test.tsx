@@ -18,7 +18,7 @@ jest.mock("@react-navigation/native", () => {
   };
 });
 
-describe("AddAssetModal Unit Tests", () => {
+describe("AddAsset Unit Tests", () => {
   test("should render correctly", () => {
     const addAssetModal = render(<AddAsset />);
     expect(addAssetModal).toMatchSnapshot();

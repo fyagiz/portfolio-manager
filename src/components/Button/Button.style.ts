@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
-import { styleConstants } from "../../utils";
+import { STYLE } from "../../utils/constants";
+
 export default StyleSheet.create({
   container: {
     alignSelf: "flex-start",
-    margin: styleConstants.margin,
-    padding: styleConstants.padding,
-    borderRadius: styleConstants.borderRadius,
-    maxWidth: styleConstants.maxWidth,
+    margin: STYLE.margin,
+    padding: STYLE.padding,
+    borderRadius: STYLE.borderRadius,
+    maxWidth: STYLE.maxWidth,
   },
 });

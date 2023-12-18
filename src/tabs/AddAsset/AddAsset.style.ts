@@ -1,27 +1,27 @@
 import { StyleSheet } from "react-native";
-import { Colors, styleConstants } from "../../utils";
+import { COLOR, STYLE } from "../../utils/constants";
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: Colors.backgroundColor,
+    backgroundColor: COLOR.backgroundColor,
   },
   insideContainer: {
-    backgroundColor: Colors.backgroundColor,
-    borderRadius: styleConstants.borderRadius,
-    padding: styleConstants.padding,
+    backgroundColor: COLOR.backgroundColor,
+    borderRadius: STYLE.borderRadius,
+    padding: STYLE.padding,
   },
   textInputContainer: {
-    padding: styleConstants.padding,
+    padding: STYLE.padding,
   },
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "center",
   },
   textInputStyle: {
-    borderRadius: styleConstants.borderRadius,
-    borderWidth: styleConstants.borderWidth,
-    padding: styleConstants.padding,
+    borderRadius: STYLE.borderRadius,
+    borderWidth: STYLE.borderWidth,
+    padding: STYLE.padding,
   },
   buttonStyle: {
     width: 512,

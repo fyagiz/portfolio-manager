@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
-import { styleConstants } from "../../utils";
+import { STYLE } from "../../utils/constants";
 
 export default StyleSheet.create({
   container: {
-    margin: styleConstants.margin,
-    padding: styleConstants.padding,
-    borderRadius: styleConstants.borderRadius,
+    margin: STYLE.margin,
+    padding: STYLE.padding,
+    borderRadius: STYLE.borderRadius,
   },
 });

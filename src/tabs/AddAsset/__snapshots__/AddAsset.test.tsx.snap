@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AddAssetModal Unit Tests should render correctly 1`] = `
+exports[`AddAsset Unit Tests should render correctly 1`] = `
 <View
   accessibilityState={
     {
@@ -35,7 +35,6 @@ exports[`AddAssetModal Unit Tests should render correctly 1`] = `
     {
       "backgroundColor": "#017387",
       "flex": 1,
-      "justifyContent": "center",
     }
   }
 >

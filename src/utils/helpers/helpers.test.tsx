@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react-native";
-import { renderIcon } from "./renderIcon";
+import { renderIcon } from ".";
 
 describe("Utils Unit Tests", () => {
   test("should renderIcon render Ionicons icons", () => {

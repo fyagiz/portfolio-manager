@@ -5,13 +5,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import HeaderSafeContainer from "./components/HeaderSafeContainer";
 import Portfolio from "./tabs/Portfolio";
 import AddAsset from "./tabs/AddAsset";
-import { Colors, RootStackParamList, renderIcon, tabBarConstants } from "./utils";
+import { COLOR, BOTTOM_TAB } from "./utils/constants";
+import { RootStackParamList } from "./utils/navigation";
+import { renderIcon } from "./utils/helpers";
 
 const Tab = createBottomTabNavigator<typeof RootStackParamList>();
 
 const App = () => {
-  const { headerColor, tabBackgroundColor, tabBarActiveTintColor, tabBarInactiveTintColor } = Colors;
-  const { headerTitleAlign } = tabBarConstants;
+  const { headerColor, tabBackgroundColor, tabBarActiveTintColor, tabBarInactiveTintColor } = COLOR;
+  const { headerTitleAlign } = BOTTOM_TAB;
 
   return (
     <HeaderSafeContainer>

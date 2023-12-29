@@ -4,6 +4,9 @@ import { useCallback, useEffect, useState } from "react";
 import Button from "../../components/Button";
 import { HandleFormatInputFormatType } from "./AddAsset.type";
 import { useNavigation } from "@react-navigation/native";
+import { useAppDispatch } from "../../utils/hooks";
+import { StockType } from "../../utils/assetTypes";
+import { addStock } from "../../store/reducers";
 
 const AddAsset = () => {
   const navigation = useNavigation();
@@ -11,6 +14,7 @@ const AddAsset = () => {
   const [amount, setAmount] = useState<string>("");
   const [price, setPrice] = useState<string>("");
   const [commision, setCommision] = useState<string>("");
+  const dispatch = useAppDispatch();
 
   const clearInputFields = useCallback(() => {
     if (stockName.length > 0) setStockName("");
@@ -65,6 +69,15 @@ const AddAsset = () => {
       setFunction(filteredText);
     }
   };
+
+  const addAsset = () => {
+    const totalCost = Number(price) + Number(commision);
+    const stockAmount = Number(amount);
+    const name = stockName;
+    const newStock: StockType = { name, amount: stockAmount, totalCost };
+    dispatch(addStock(newStock));
+  };
+
   return (
     <Pressable style={styles.container} onPress={() => Keyboard.dismiss()} android_disableSound>
       <View style={styles.insideContainer}>
@@ -105,7 +118,7 @@ const AddAsset = () => {
         </View>
         <View style={styles.buttonContainer}>
           <View>
-            <Button text="Add" containerStyle={styles.buttonStyle} />
+            <Button text="Add" containerStyle={styles.buttonStyle} onPress={addAsset} />
           </View>
         </View>
       </View>

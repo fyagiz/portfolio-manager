@@ -1,4 +1,4 @@
-import { Keyboard, Pressable, Text, TextInput, View } from "react-native";
+import { Alert, Keyboard, Pressable, Text, TextInput, View } from "react-native";
 import styles from "./AddAsset.style";
 import { useCallback, useEffect, useState } from "react";
 import Button from "../../components/Button";
@@ -76,6 +76,7 @@ const AddAsset = () => {
     const name = stockName;
     const newStock: StockType = { name, amount: stockAmount, totalCost };
     dispatch(addStock(newStock));
+    Alert.alert("Success", "Asset is added.", [{ text: "OK", onPress: () => clearInputFields() }]);
   };
 
   return (
@@ -89,7 +90,7 @@ const AddAsset = () => {
             value={stockName}
             style={styles.textInputStyle}
             keyboardType="default"
-            maxLength={4}
+            maxLength={5}
           />
           <Text testID="amountText">Amount</Text>
           <TextInput

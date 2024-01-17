@@ -1,13 +1,23 @@
+const PALETTE = {
+  black: "#000000",
+  aqua: "#00FFFF",
+  blueLagoon: "#017387",
+  goldenSand: "#F3CC79",
+  marzipan: "#F9DDA4",
+  white: "#FFFFFF",
+};
+
 const COLOR = {
-  backgroundColor: "#017387",
-  headerColor: "#017387",
-  investmentCardColor: "#F3CC79",
-  pressedInvestmentCardColor: "#F9DDA4",
-  buttonColor: "#F3CC79",
-  pressedButtonColor: "#F9DDA4",
-  tabBackgroundColor: "#000000",
-  tabBarActiveTintColor: "#00FFFF",
-  tabBarInactiveTintColor: "#FFFFFF",
+  backgroundColor: PALETTE.blueLagoon,
+  headerColor: PALETTE.blueLagoon,
+  investmentCardColor: PALETTE.goldenSand,
+  pressedInvestmentCardColor: PALETTE.marzipan,
+  buttonColor: PALETTE.goldenSand,
+  pressedButtonColor: PALETTE.marzipan,
+  tabBackgroundColor: PALETTE.black,
+  tabBarActiveTintColor: PALETTE.aqua,
+  tabBarInactiveTintColor: PALETTE.white,
+  swipeDeleteColor: PALETTE.white,
 };
 
 export default COLOR;

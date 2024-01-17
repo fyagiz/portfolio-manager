@@ -25,7 +25,7 @@ const InvestmentCard = (props: InvestmentCardPropsType) => {
     return (
       <View style={styles.swipeContainer}>
         <Pressable style={[styles.container, styles.swipeDeleteElement]}>
-          {renderIcon({ color: COLOR.swipeDeleteColor, iconName: "trash", iconType: "Ionicons", size: 36 })}
+          {renderIcon({ color: COLOR.swipeDeleteIconColor, iconName: "trash", iconType: "Ionicons", size: 36 })}
         </Pressable>
       </View>
     );
@@ -42,7 +42,6 @@ const InvestmentCard = (props: InvestmentCardPropsType) => {
           {
             backgroundColor: pressed ? pressedInvestmentCardColor : investmentCardColor,
           },
-          { borderWidth: 5 },
         ]}
         onPress={onPress}
         testID="pressable"

@@ -17,7 +17,7 @@ const COLOR = {
   tabBackgroundColor: PALETTE.black,
   tabBarActiveTintColor: PALETTE.aqua,
   tabBarInactiveTintColor: PALETTE.white,
-  swipeDeleteColor: PALETTE.white,
+  swipeDeleteIconColor: PALETTE.white,
 };
 
 export default COLOR;

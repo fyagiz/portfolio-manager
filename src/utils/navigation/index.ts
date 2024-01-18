@@ -1,3 +1,3 @@
-import RootStackParamList from "./navigation.type";
+import RootBottomTabParamList from "./navigation.type";
 
-export { RootStackParamList };
+export { RootBottomTabParamList };

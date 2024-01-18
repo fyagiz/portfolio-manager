@@ -6,12 +6,12 @@ import HeaderSafeContainer from "./components/HeaderSafeContainer";
 import Portfolio from "./tabs/Portfolio";
 import AddAsset from "./tabs/AddAsset";
 import { COLOR, BOTTOM_TAB } from "./utils/constants";
-import { RootStackParamList } from "./utils/navigation";
+import { RootBottomTabParamList } from "./utils/navigation";
 import { renderIcon } from "./utils/helpers";
 import { Provider } from "react-redux";
 import store from "./store";
 
-const Tab = createBottomTabNavigator<typeof RootStackParamList>();
+const Tab = createBottomTabNavigator<typeof RootBottomTabParamList>();
 
 const App = () => {
   const { headerColor, tabBackgroundColor, tabBarActiveTintColor, tabBarInactiveTintColor } = COLOR;

@@ -2,14 +2,14 @@ import { Alert, Keyboard, Pressable, Text, TextInput, View } from "react-native"
 import styles from "./AddAsset.style";
 import { useCallback, useEffect, useState } from "react";
 import Button from "../../components/Button";
-import { HandleFormatInputFormatType } from "./AddAsset.type";
+import { HandleFormatInputFormatType, NavigationType } from "./AddAsset.type";
 import { useNavigation } from "@react-navigation/native";
 import { useAppDispatch } from "../../utils/hooks";
 import { StockType } from "../../utils/assetTypes";
 import { addStock } from "../../store/reducers";
 
 const AddAsset = () => {
-  const navigation = useNavigation();
+  const navigation = useNavigation<NavigationType>();
   const [stockName, setStockName] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
   const [price, setPrice] = useState<string>("");

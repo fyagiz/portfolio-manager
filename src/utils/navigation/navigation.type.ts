@@ -1,6 +1,6 @@
-const RootStackParamList = {
+const RootBottomTabParamList = {
   Portfolio: undefined,
   AddAsset: undefined,
 };
 
-export default RootStackParamList;
+export default RootBottomTabParamList;

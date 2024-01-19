@@ -76,7 +76,15 @@ const AddAsset = () => {
     const name = stockName;
     const newStock: StockType = { name, amount: stockAmount, totalCost };
     dispatch(addStock(newStock));
-    Alert.alert("Success", "Asset is added.", [{ text: "OK", onPress: () => clearInputFields() }]);
+    Alert.alert("Success", "Asset is added.", [
+      {
+        text: "OK",
+        onPress: () => {
+          Keyboard.dismiss();
+          clearInputFields();
+        },
+      },
+    ]);
   };
 
   return (

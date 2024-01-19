@@ -15,9 +15,12 @@ export const stocksSlice = createSlice({
     addStock: (state, action: PayloadAction<StockType>) => {
       state.stocks.push(action.payload);
     },
+    deleteStock: (state, action: PayloadAction<string>) => {
+      state.stocks = state.stocks.filter(stock => stock.name !== action.payload);
+    },
   },
 });
 
-export const { addStock } = stocksSlice.actions;
+export const { addStock, deleteStock } = stocksSlice.actions;
 export const selectStocks = (state: RootStateType) => state.stockState;
 export const stocksReducer = stocksSlice.reducer;

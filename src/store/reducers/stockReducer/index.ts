@@ -1,1 +1,1 @@
-export { stocksReducer, addStock, selectStocks } from "./stocksReducer";
+export { stocksReducer, addStock, deleteStock, selectStocks } from "./stocksReducer";

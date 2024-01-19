@@ -1,25 +1,19 @@
-import { Pressable, Text, View } from "react-native";
+import { Alert, Pressable, Text, View } from "react-native";
 import { InvestmentCardPropsType } from "./InvestmentCard.type";
 import styles from "./InvestmentCard.style";
 import { COLOR } from "../../utils/constants";
-import { useEffect, useRef } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useRef } from "react";
 import { Swipeable } from "react-native-gesture-handler";
 import { renderIcon } from "../../utils/helpers";
+import { useAppDispatch } from "../../utils/hooks";
+import { deleteStock } from "../../store/reducers";
+import { getBist } from "../../utils/api";
 
 const InvestmentCard = (props: InvestmentCardPropsType) => {
   const { investmentName, profit, profitPercentage, onPress, testOnly_pressed } = props;
   const { investmentCardColor, pressedInvestmentCardColor } = COLOR;
   const swipeableRef = useRef<Swipeable>(null);
-  const navigation = useNavigation();
-
-  useEffect(() => {
-    const blurListener = navigation.addListener("blur", () => {
-      swipeableRef.current?.close();
-    });
-
-    return blurListener;
-  }, [navigation]);
+  const dispatch = useAppDispatch();
 
   const renderRightActions = () => {
     return (
@@ -32,8 +26,21 @@ const InvestmentCard = (props: InvestmentCardPropsType) => {
   };
 
   const onSwipeableOpen = () => {
+    Alert.alert("Delete", `${investmentName} Delete?`, [
+      {
+        text: "Delete",
+        onPress: () => {
+          getBist();
+          dispatch(deleteStock(investmentName));
+        },
+      },
+      {
+        text: "Cancel",
+      },
+    ]);
     swipeableRef.current?.close();
   };
+
   return (
     <Swipeable renderRightActions={renderRightActions} ref={swipeableRef} onSwipeableOpen={onSwipeableOpen}>
       <Pressable

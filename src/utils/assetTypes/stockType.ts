@@ -1,7 +1,8 @@
 type StockType = {
-  name: string;
-  amount: number;
-  totalCost: number;
+  stockCode: string;
+  stockName?: string;
+  amount?: number;
+  totalCost?: number;
 };
 
 export default StockType;

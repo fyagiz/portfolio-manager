@@ -2,8 +2,8 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { HeaderSafeContainerPropsType } from "./HeaderSafeContainer.type";
 
 const HeaderSafeContainer = (props: HeaderSafeContainerPropsType) => {
-  const { children } = props;
-  return <SafeAreaProvider>{children}</SafeAreaProvider>;
+  const { onLayout, children } = props;
+  return <SafeAreaProvider onLayout={onLayout}>{children}</SafeAreaProvider>;
 };
 
 export default HeaderSafeContainer;

@@ -7,7 +7,6 @@ import { Swipeable } from "react-native-gesture-handler";
 import { renderIcon } from "../../utils/helpers";
 import { useAppDispatch } from "../../utils/hooks";
 import { deleteStock } from "../../store/reducers";
-import { getBist } from "../../utils/api";
 
 const InvestmentCard = (props: InvestmentCardPropsType) => {
   const { investmentName, profit, profitPercentage, onPress, testOnly_pressed } = props;
@@ -30,7 +29,6 @@ const InvestmentCard = (props: InvestmentCardPropsType) => {
       {
         text: "Delete",
         onPress: () => {
-          getBist();
           dispatch(deleteStock(investmentName));
         },
       },
@@ -56,8 +54,10 @@ const InvestmentCard = (props: InvestmentCardPropsType) => {
         onLongPress={() => swipeableRef.current?.openRight()}
       >
         <Text testID="investmentName">{investmentName}</Text>
-        <Text testID="profit">{profit}</Text>
-        <Text testID="profitPercentage">% {profitPercentage}</Text>
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <Text testID="profit">Profit: {profit}</Text>
+          <Text testID="profitPercentage">% {profitPercentage}</Text>
+        </View>
       </Pressable>
     </Swipeable>
   );

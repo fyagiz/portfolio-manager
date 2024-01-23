@@ -4,24 +4,25 @@ import { useCallback, useEffect, useState } from "react";
 import Button from "../../components/Button";
 import { HandleFormatInputFormatType, NavigationType } from "./AddAsset.type";
 import { useNavigation } from "@react-navigation/native";
-import { useAppDispatch } from "../../utils/hooks";
-import { StockType } from "../../utils/assetTypes";
+import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { addStock } from "../../store/reducers";
 
 const AddAsset = () => {
   const navigation = useNavigation<NavigationType>();
-  const [stockName, setStockName] = useState<string>("");
+  const stockState = useAppSelector(state => state.stockState);
+  const { stocks, bistStocks } = stockState;
+  const [stockCode, setStockCode] = useState<string>("");
   const [amount, setAmount] = useState<string>("");
   const [price, setPrice] = useState<string>("");
   const [commision, setCommision] = useState<string>("");
   const dispatch = useAppDispatch();
 
   const clearInputFields = useCallback(() => {
-    if (stockName.length > 0) setStockName("");
+    if (stockCode.length > 0) setStockCode("");
     if (amount.length > 0) setAmount("");
     if (price.length > 0) setPrice("");
     if (commision.length > 0) setCommision("");
-  }, [amount.length, commision.length, price.length, stockName.length]);
+  }, [amount.length, commision.length, price.length, stockCode.length]);
 
   useEffect(() => {
     const blurListener = navigation.addListener("blur", () => {
@@ -37,7 +38,7 @@ const AddAsset = () => {
     let isChange = false;
 
     switch (keyboardType) {
-      case "stockName":
+      case "stockCode":
         regexp = /^$|^[a-zA-Z]+$/;
         if (regexp.test(newValue)) {
           filteredText = newValue.toUpperCase();
@@ -70,21 +71,61 @@ const AddAsset = () => {
     }
   };
 
-  const addAsset = () => {
-    const totalCost = Number(price) + Number(commision);
-    const stockAmount = Number(amount);
-    const name = stockName;
-    const newStock: StockType = { name, amount: stockAmount, totalCost };
-    dispatch(addStock(newStock));
-    Alert.alert("Success", "Asset is added.", [
-      {
-        text: "OK",
-        onPress: () => {
-          Keyboard.dismiss();
-          clearInputFields();
+  const isAssetValid = () => {
+    const isStockCodeValid = !!bistStocks.find(stock => stock.stockCode === stockCode);
+    const isStockInPortfolio = !!stocks.find(stock => stock.stockCode === stockCode);
+
+    if (!isStockCodeValid) {
+      Alert.alert("Error", "Stock is not in BIST.", [
+        {
+          text: "OK",
+          onPress: () => {
+            Keyboard.dismiss();
+            clearInputFields();
+          },
         },
-      },
-    ]);
+      ]);
+      return false;
+    } else if (isStockInPortfolio) {
+      Alert.alert("Error", "Stock is in the Portfolio..", [
+        {
+          text: "OK",
+          onPress: () => {
+            Keyboard.dismiss();
+            clearInputFields();
+          },
+        },
+      ]);
+      return false;
+    }
+
+    return true;
+  };
+
+  const addAsset = () => {
+    const isValid = isAssetValid();
+
+    if (isValid) {
+      const totalCost = Number(price) + Number(commision);
+      const stockAmount = Number(amount);
+
+      dispatch(
+        addStock({
+          stockCode,
+          amount: stockAmount,
+          totalCost,
+        }),
+      );
+      Alert.alert("Success", "Asset is added.", [
+        {
+          text: "OK",
+          onPress: () => {
+            Keyboard.dismiss();
+            clearInputFields();
+          },
+        },
+      ]);
+    }
   };
 
   return (
@@ -94,8 +135,8 @@ const AddAsset = () => {
           <Text testID="stockNameText">Stock Name</Text>
           <TextInput
             testID="stockNameTextInput"
-            onChangeText={newValue => handleFormatInput(newValue, setStockName, "stockName")}
-            value={stockName}
+            onChangeText={newValue => handleFormatInput(newValue, setStockCode, "stockCode")}
+            value={stockCode}
             style={styles.textInputStyle}
             keyboardType="default"
             maxLength={5}

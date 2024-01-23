@@ -10,13 +10,13 @@ const Dashboard = () => {
   const { stocks } = stockState;
 
   const renderItem = ({ item }: { item: StockType }) => {
-    return <InvestmentCard investmentName={item.name} profit="5000 TL" profitPercentage="15" />;
+    return <InvestmentCard investmentName={item.stockCode} profit="5000 TL" profitPercentage="15" />;
   };
 
   return (
     <Pressable style={styles.container}>
       <GestureHandlerRootView>
-        <FlatList data={stocks} renderItem={renderItem} keyExtractor={stock => stock.name} />
+        <FlatList data={stocks} renderItem={renderItem} keyExtractor={stock => stock.stockCode} />
       </GestureHandlerRootView>
     </Pressable>
   );

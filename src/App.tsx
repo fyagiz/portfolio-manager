@@ -10,15 +10,39 @@ import { RootBottomTabParamList } from "./utils/navigation";
 import { renderIcon } from "./utils/helpers";
 import { Provider } from "react-redux";
 import store from "./store";
-
+import * as SplashScreen from "expo-splash-screen";
+import { useCallback, useEffect, useState } from "react";
+import { getBistStocks } from "./utils/api";
+import { loadBistStocks } from "./store/reducers";
 const Tab = createBottomTabNavigator<typeof RootBottomTabParamList>();
+SplashScreen.preventAutoHideAsync();
 
 const App = () => {
+  const [bistStocksIsReady, setBistStocksIsReady] = useState(false);
   const { headerColor, tabBackgroundColor, tabBarActiveTintColor, tabBarInactiveTintColor } = COLOR;
   const { headerTitleAlign } = BOTTOM_TAB;
 
+  useEffect(() => {
+    const prepareBistStocks = async () => {
+      const bistStocks = await getBistStocks();
+      store?.dispatch(loadBistStocks(bistStocks));
+      setBistStocksIsReady(true);
+    };
+    prepareBistStocks();
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (bistStocksIsReady) {
+      await SplashScreen.hideAsync();
+    }
+  }, [bistStocksIsReady]);
+
+  if (!bistStocksIsReady) {
+    return null;
+  }
+
   return (
-    <HeaderSafeContainer>
+    <HeaderSafeContainer onLayout={onLayoutRootView}>
       <Provider store={store}>
         <NavigationContainer>
           <Tab.Navigator

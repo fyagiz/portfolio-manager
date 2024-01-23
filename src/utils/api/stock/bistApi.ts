@@ -1,9 +1,10 @@
 import axios from "axios";
+import { StockType } from "../../assetTypes";
 
-const BIST_STOCKS_API = "http://localhost:3000/bistAllStocks";
+const BIST_STOCKS_API = process.env.EXPO_PUBLIC_BIST_STOCKS_API;
 
-export const getBist = () => {
-  axios.get(BIST_STOCKS_API).then(response => {
-    console.log(response.data);
-  });
+export const getBistStocks = async () => {
+  const bistStocks = (await axios.get(BIST_STOCKS_API!)).data as Array<StockType>;
+
+  return bistStocks;
 };

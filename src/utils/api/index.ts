@@ -1,1 +1,1 @@
-export { getBist } from "./stock";
+export { getBistStocks } from "./stock";

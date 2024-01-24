@@ -5,5 +5,6 @@ export type InvestmentCardPropsType = {
   profit: string;
   profitPercentage: string;
   onPress?: (event: GestureResponderEvent) => void;
+  onLongPress?: (event: GestureResponderEvent) => void;
   testOnly_pressed?: boolean;
 };

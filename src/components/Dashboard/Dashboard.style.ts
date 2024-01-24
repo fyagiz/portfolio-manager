@@ -7,4 +7,16 @@ export default StyleSheet.create({
     borderRadius: STYLE.borderRadius,
     margin: STYLE.margin,
   },
+  swipeContainer: {
+    flexDirection: "row",
+  },
+  swipeDeleteContainer: {
+    margin: STYLE.margin,
+    padding: STYLE.padding,
+    borderRadius: STYLE.borderRadius,
+  },
+  swipeDeleteElement: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
 });

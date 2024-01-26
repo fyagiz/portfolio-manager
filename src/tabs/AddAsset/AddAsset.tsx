@@ -5,7 +5,8 @@ import Button from "../../components/Button";
 import { HandleFormatInputFormatType, NavigationType } from "./AddAsset.type";
 import { useNavigation } from "@react-navigation/native";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
-import { addStock } from "../../store/reducers";
+import { addStock } from "../../store/slices";
+import { getBistStockPrice } from "../../utils/api";
 
 const AddAsset = () => {
   const navigation = useNavigation<NavigationType>();
@@ -102,18 +103,22 @@ const AddAsset = () => {
     return true;
   };
 
-  const addAsset = () => {
+  const addAsset = async () => {
     const isValid = isAssetValid();
 
     if (isValid) {
-      const totalCost = Number(price) + Number(commision);
       const stockAmount = Number(amount);
+      const totalCost = Number(price) * stockAmount + Number(commision);
+      const stockName = bistStocks.find(stock => stock.stockCode === stockCode)?.stockName;
+      const stockPrice = await getBistStockPrice(stockCode);
 
       dispatch(
         addStock({
+          stockName,
           stockCode,
           amount: stockAmount,
           totalCost,
+          price: stockPrice,
         }),
       );
       Alert.alert("Success", "Asset is added.", [

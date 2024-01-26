@@ -6,7 +6,7 @@ import { StockType } from "../../utils/assetTypes";
 import { GestureHandlerRootView, Swipeable } from "react-native-gesture-handler";
 import { renderIcon } from "../../utils/helpers";
 import { COLOR } from "../../utils/constants";
-import { deleteStock } from "../../store/reducers";
+import { deleteStock } from "../../store/slices";
 import { useRef } from "react";
 import { SwipeableRefsType } from "./Dashboard.type";
 
@@ -42,10 +42,35 @@ const Dashboard = () => {
     swipeableRefs.current[stockCode]?.close();
   };
 
+  const calculateProfit = (stock: StockType) => {
+    const { amount, totalCost, price } = stock;
+    const { current, previousDayClose } = price!;
+    let profitLossNumber = 0;
+    let profitLossPercentage = 0;
+    const currentPriceNumber = Number(current);
+    const amountNumber = Number(amount);
+    const totalCostNumber = Number(totalCost);
+
+    if (currentPriceNumber === 0) {
+      const previousDayCloseNumber = Number(previousDayClose);
+      profitLossNumber = previousDayCloseNumber * amountNumber - totalCostNumber;
+      profitLossPercentage = (profitLossNumber / totalCostNumber) * 100;
+    } else {
+      profitLossNumber = currentPriceNumber * amountNumber - totalCostNumber;
+      profitLossPercentage = (profitLossNumber / totalCostNumber) * 100;
+    }
+
+    return {
+      value: profitLossNumber.toFixed(2),
+      percentage: profitLossPercentage.toFixed(2),
+    };
+  };
+
   const renderItem = ({ item }: { item: StockType }) => {
+    const profit = calculateProfit(item);
     return (
       <Swipeable ref={ref => (swipeableRefs.current[item.stockCode] = ref!)} renderRightActions={renderRightActions} onSwipeableOpen={() => onSwipeableOpen(item.stockCode)}>
-        <InvestmentCard investmentName={item.stockCode} profit="5000 TL" profitPercentage="15" />
+        <InvestmentCard investmentName={item.stockCode} profit={profit.value} profitPercentage={profit.percentage} />
       </Swipeable>
     );
   };

@@ -1,1 +1,1 @@
-export { getBistStocks } from "./bistApi";
+export { getBistStocks, getBistStockPrice } from "./bistApi";

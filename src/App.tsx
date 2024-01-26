@@ -13,7 +13,7 @@ import store from "./store";
 import * as SplashScreen from "expo-splash-screen";
 import { useCallback, useEffect, useState } from "react";
 import { getBistStocks } from "./utils/api";
-import { loadBistStocks } from "./store/reducers";
+import { loadBistStocks } from "./store/slices";
 const Tab = createBottomTabNavigator<typeof RootBottomTabParamList>();
 SplashScreen.preventAutoHideAsync();
 

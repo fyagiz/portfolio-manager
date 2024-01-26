@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import type { RootStateType } from "../../store";
-import { StockStateType } from "./stockReducer.type";
+import { StockStateType } from "./stockSlice.type";
 import { StockType } from "../../../utils/assetTypes";
 
 const initialState: StockStateType = {
@@ -9,8 +9,8 @@ const initialState: StockStateType = {
   stocks: [],
 };
 
-export const stocksSlice = createSlice({
-  name: "stocks",
+export const stockSlice = createSlice({
+  name: "stock",
   initialState,
   reducers: {
     loadBistStocks: (state, action: PayloadAction<Array<StockType>>) => {
@@ -25,6 +25,6 @@ export const stocksSlice = createSlice({
   },
 });
 
-export const { loadBistStocks, addStock, deleteStock } = stocksSlice.actions;
+export const { loadBistStocks, addStock, deleteStock } = stockSlice.actions;
 export const selectStocks = (state: RootStateType) => state.stockState;
-export const stocksReducer = stocksSlice.reducer;
+export const stocksReducer = stockSlice.reducer;

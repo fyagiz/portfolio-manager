@@ -14,13 +14,60 @@ import * as SplashScreen from "expo-splash-screen";
 import { useCallback, useEffect, useState } from "react";
 import { getBistStocks } from "./utils/api";
 import { loadBistStocks } from "./store/slices";
+import Loading from "./components/Loading";
+import { useAppSelector } from "./utils/hooks";
+
 const Tab = createBottomTabNavigator<typeof RootBottomTabParamList>();
 SplashScreen.preventAutoHideAsync();
 
-const App = () => {
-  const [bistStocksIsReady, setBistStocksIsReady] = useState(false);
+const Root = () => {
+  const appState = useAppSelector(state => state.appState);
   const { headerColor, tabBackgroundColor, tabBarActiveTintColor, tabBarInactiveTintColor } = COLOR;
   const { headerTitleAlign } = BOTTOM_TAB;
+
+  return (
+    <>
+      <Loading isLoading={appState.isLoading} />
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: headerColor,
+            },
+            headerTitleAlign: headerTitleAlign,
+            tabBarStyle: {
+              backgroundColor: tabBackgroundColor,
+            },
+            tabBarActiveTintColor: tabBarActiveTintColor,
+            tabBarInactiveTintColor: tabBarInactiveTintColor,
+            tabBarHideOnKeyboard: true,
+          }}
+        >
+          <Tab.Screen
+            name="Portfolio"
+            component={Portfolio}
+            options={{
+              title: "Portfolio",
+              tabBarIcon: ({ color, size }) => renderIcon({ iconType: "Ionicons", iconName: "wallet", color, size }),
+            }}
+          />
+          <Tab.Screen
+            name="AddAsset"
+            component={AddAsset}
+            options={{
+              title: "Add Asset",
+              tabBarIcon: ({ color, size }) => renderIcon({ iconType: "MaterialCommunityIcons", iconName: "bank-plus", color, size }),
+            }}
+          />
+        </Tab.Navigator>
+        <StatusBar style="dark" />
+      </NavigationContainer>
+    </>
+  );
+};
+
+const App = () => {
+  const [bistStocksIsReady, setBistStocksIsReady] = useState(false);
 
   useEffect(() => {
     const prepareBistStocks = async () => {
@@ -44,40 +91,7 @@ const App = () => {
   return (
     <HeaderSafeContainer onLayout={onLayoutRootView}>
       <Provider store={store}>
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={{
-              headerStyle: {
-                backgroundColor: headerColor,
-              },
-              headerTitleAlign: headerTitleAlign,
-              tabBarStyle: {
-                backgroundColor: tabBackgroundColor,
-              },
-              tabBarActiveTintColor: tabBarActiveTintColor,
-              tabBarInactiveTintColor: tabBarInactiveTintColor,
-              tabBarHideOnKeyboard: true,
-            }}
-          >
-            <Tab.Screen
-              name="Portfolio"
-              component={Portfolio}
-              options={{
-                title: "Portfolio",
-                tabBarIcon: ({ color, size }) => renderIcon({ iconType: "Ionicons", iconName: "wallet", color, size }),
-              }}
-            />
-            <Tab.Screen
-              name="AddAsset"
-              component={AddAsset}
-              options={{
-                title: "Add Asset",
-                tabBarIcon: ({ color, size }) => renderIcon({ iconType: "MaterialCommunityIcons", iconName: "bank-plus", color, size }),
-              }}
-            />
-          </Tab.Navigator>
-          <StatusBar style="dark" />
-        </NavigationContainer>
+        <Root />
       </Provider>
     </HeaderSafeContainer>
   );

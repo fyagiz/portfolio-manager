@@ -7,6 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { addStock } from "../../store/slices";
 import { getBistStockPrice } from "../../utils/api";
+import { setIsLoading } from "../../store/slices/appSlice";
 
 const AddAsset = () => {
   const navigation = useNavigation<NavigationType>();
@@ -110,7 +111,9 @@ const AddAsset = () => {
       const stockAmount = Number(amount);
       const totalCost = Number(price) * stockAmount + Number(commision);
       const stockName = bistStocks.find(stock => stock.stockCode === stockCode)?.stockName;
+      dispatch(setIsLoading(true));
       const stockPrice = await getBistStockPrice(stockCode);
+      dispatch(setIsLoading(false));
 
       dispatch(
         addStock({

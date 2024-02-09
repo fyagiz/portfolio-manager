@@ -1,3 +1,4 @@
 import StockType from "./stockType";
+import AssetHistoryType from "./assetHistoryType";
 
-export { StockType };
+export { StockType, AssetHistoryType };

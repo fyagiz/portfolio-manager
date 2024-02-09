@@ -4,6 +4,7 @@ const STYLE = {
   margin: 4,
   maxWidth: 128,
   borderWidth: 2,
+  opacity: 0.32,
 };
 
 export default STYLE;

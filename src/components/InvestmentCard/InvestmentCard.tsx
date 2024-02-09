@@ -6,6 +6,8 @@ import { COLOR } from "../../utils/constants";
 const InvestmentCard = (props: InvestmentCardPropsType) => {
   const { investmentName, profit, profitPercentage, onPress, onLongPress, testOnly_pressed } = props;
   const { investmentCardColor, pressedInvestmentCardColor } = COLOR;
+  const profitNumber = Number(profit);
+  const profitPercentageNumber = Number(profitPercentage);
   return (
     <Pressable
       style={({ pressed }) => [
@@ -20,9 +22,19 @@ const InvestmentCard = (props: InvestmentCardPropsType) => {
       onLongPress={onLongPress}
     >
       <Text testID="investmentName">{investmentName}</Text>
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <Text testID="profit">Profit: {profit}</Text>
-        <Text testID="profitPercentage">% {profitPercentage}</Text>
+      <View style={styles.innerContainer}>
+        <View style={styles.textContainer}>
+          <Text testID="profit">Profit: </Text>
+          <Text testID="profit" style={profitNumber > 0 ? styles.profitText : styles.lossText}>
+            {profit}
+          </Text>
+        </View>
+        <View style={styles.textContainer}>
+          <Text testID="profitPercentage">% </Text>
+          <Text testID="profitPercentage" style={profitPercentageNumber > 0 ? styles.profitText : styles.lossText}>
+            {profitPercentage}
+          </Text>
+        </View>
       </View>
     </Pressable>
   );

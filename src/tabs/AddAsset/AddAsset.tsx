@@ -8,6 +8,8 @@ import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { addStock } from "../../store/slices";
 import { getBistStockPrice } from "../../utils/api";
 import { setIsLoading } from "../../store/slices/appSlice";
+import { AssetHistoryType } from "../../utils/assetTypes";
+import { getToday } from "../../utils/helpers";
 
 const AddAsset = () => {
   const navigation = useNavigation<NavigationType>();
@@ -114,6 +116,15 @@ const AddAsset = () => {
       dispatch(setIsLoading(true));
       const stockPrice = await getBistStockPrice(stockCode);
       dispatch(setIsLoading(false));
+      const historyObject: AssetHistoryType = {
+        amount: stockAmount,
+        assetCode: stockCode,
+        commision: Number(commision),
+        date: getToday(),
+        price: Number(price),
+        totalCost,
+        transactionType: "BUY",
+      };
 
       dispatch(
         addStock({
@@ -122,6 +133,7 @@ const AddAsset = () => {
           amount: stockAmount,
           totalCost,
           price: stockPrice,
+          history: [historyObject],
         }),
       );
       Alert.alert("Success", "Asset is added.", [

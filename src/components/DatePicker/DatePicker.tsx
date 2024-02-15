@@ -56,7 +56,7 @@ const DatePicker = (props: DatePickerPropsType) => {
       <Pressable
         onPress={() => {
           console.log("bastim-", Platform.OS);
-          setShow(true);
+          setIsVisible(true);
         }}
       >
         <View pointerEvents="none">

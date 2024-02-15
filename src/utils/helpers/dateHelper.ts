@@ -1,8 +1,10 @@
 import moment from "moment";
 import { DATE_FORMAT } from "../constants";
 
-const getToday = () => {
+export const getToday = () => {
   return moment().format(DATE_FORMAT);
 };
 
-export default getToday;
+export const getDateString = (date: Date) => {
+  return moment(date).format(DATE_FORMAT);
+};

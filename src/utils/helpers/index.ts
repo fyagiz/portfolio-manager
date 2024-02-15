@@ -1,4 +1,4 @@
 import renderIcon from "./renderIcon";
-import getToday from "./dateHelper";
+import { getDateString, getToday } from "./dateHelper";
 
-export { renderIcon, getToday };
+export { renderIcon, getDateString, getToday };

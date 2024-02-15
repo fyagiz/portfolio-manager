@@ -10,6 +10,7 @@ import { getBistStockPrice } from "../../utils/api";
 import { setIsLoading } from "../../store/slices/appSlice";
 import { AssetHistoryType } from "../../utils/assetTypes";
 import { getToday } from "../../utils/helpers";
+import DatePicker from "../../components/DatePicker";
 
 const AddAsset = () => {
   const navigation = useNavigation<NavigationType>();
@@ -19,6 +20,7 @@ const AddAsset = () => {
   const [amount, setAmount] = useState<string>("");
   const [price, setPrice] = useState<string>("");
   const [commision, setCommision] = useState<string>("");
+  const [date, setDate] = useState<Date>(new Date());
   const dispatch = useAppDispatch();
 
   const clearInputFields = useCallback(() => {
@@ -185,6 +187,7 @@ const AddAsset = () => {
             style={styles.textInputStyle}
             keyboardType="decimal-pad"
           />
+          <DatePicker text="Date" date={date} onChange={(selectedDate: Date) => setDate(selectedDate)} textInputStyle={styles.textInputStyle} />
         </View>
         <View style={styles.buttonContainer}>
           <View>

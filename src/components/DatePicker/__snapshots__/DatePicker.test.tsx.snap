@@ -41,8 +41,15 @@ exports[`DatePicker Component Unit Tests should render correctly 1`] = `
     >
       <TextInput
         editable={false}
-        style={{}}
-        value="15-02-2024"
+        style={
+          [
+            {
+              "color": "#000000",
+            },
+            {},
+          ]
+        }
+        value="16-02-2024"
       />
     </View>
   </View>

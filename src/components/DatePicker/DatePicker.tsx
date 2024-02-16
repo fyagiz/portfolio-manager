@@ -1,50 +1,76 @@
 import { DatePickerPropsType } from "./DatePicker.type";
 import { Modal, Platform, Pressable, Text, View, TextInput } from "react-native";
-import { getDateString } from "../../utils/helpers";
+import { getBeforeDateByDay, getDateString, getToday } from "../../utils/helpers";
 import DateTimePicker, { DateTimePickerEvent } from "@react-native-community/datetimepicker";
 import { useState } from "react";
 import Button from "../Button";
+import styles from "./DatePicker.style";
 
 const DatePicker = (props: DatePickerPropsType) => {
-  const { text, date, onChange, textInputStyle } = props;
+  const { text, date, onChange, textInputStyle, testID } = props;
+  const [localDate, setLocalDate] = useState(date);
   const [isVisible, setIsVisible] = useState(false);
+  const MAXIMUM_DATE = getToday();
+  const MINIMUM_DATE = getBeforeDateByDay(MAXIMUM_DATE, 30);
 
-  const onChangeFirst = (event: DateTimePickerEvent, selectedDate?: Date) => {
-    if (Platform.OS === "android") {
-      setIsVisible(false);
-    }
+  const onChangeAndroid = (event: DateTimePickerEvent, selectedDate?: Date) => {
+    setIsVisible(false);
     onChange(selectedDate!);
   };
 
+  const onChangeIOS = (event: DateTimePickerEvent, selectedDate?: Date) => {
+    setLocalDate(selectedDate!);
+  };
+
   const renderAndroidDatePicker = () => {
-    console.log("android");
     return (
       isVisible && (
-        <View style={{ flex: 1, justifyContent: "flex-end" }}>
-          <View style={{ opacity: 1, backgroundColor: "black" }}>
-            <DateTimePicker value={date} onChange={onChangeFirst} mode="date" display="spinner" />
+        <View>
+          <View>
+            <DateTimePicker
+              testID={`${testID}DatePicker`}
+              value={date}
+              onChange={onChangeAndroid}
+              mode="date"
+              display="spinner"
+              minimumDate={MINIMUM_DATE}
+              maximumDate={MAXIMUM_DATE}
+            />
           </View>
         </View>
       )
     );
   };
 
+  const pressOutside = () => {
+    setIsVisible(false);
+  };
+
+  const iOSConfirmButton = () => {
+    onChange(localDate);
+    setIsVisible(false);
+  };
+
   const renderIOSDatePicker = () => {
-    console.log("iOS");
     return (
       isVisible && (
-        <Modal transparent>
-          <View style={{ flex: 1, justifyContent: "flex-end" }}>
-            <View style={{ opacity: 1, backgroundColor: "black" }}>
-              <DateTimePicker value={date} onChange={onChangeFirst} mode="date" display="spinner" />
-              <Button
-                text="Confirm"
-                onPress={() => {
-                  setIsVisible(false);
-                }}
+        <Modal transparent animationType="slide">
+          <Pressable style={styles.iOScontainer} onPress={pressOutside}>
+            <View style={styles.innerIOSContainer}>
+              <DateTimePicker
+                testID={`${testID}DatePicker`}
+                value={date}
+                onChange={onChangeIOS}
+                mode="date"
+                display="spinner"
+                minimumDate={MINIMUM_DATE}
+                maximumDate={MAXIMUM_DATE}
               />
+              <View>
+                <Button testID={`${testID}DatePickerIOSButton`} text="Confirm" onPress={iOSConfirmButton} containerStyle={styles.iOSButtonStyle} />
+              </View>
             </View>
-          </View>
+          </Pressable>
         </Modal>
       )
     );
@@ -55,12 +81,11 @@ const DatePicker = (props: DatePickerPropsType) => {
       <Text>{text}</Text>
       <Pressable
         onPress={() => {
-          console.log("bastim-", Platform.OS);
           setIsVisible(true);
         }}
       >
         <View pointerEvents="none">
-          <TextInput style={textInputStyle} editable={false} value={getDateString(date)} />
+          <TextInput style={[styles.textInputStyle, textInputStyle]} editable={false} value={getDateString(date)} />
         </View>
       </Pressable>
       {Platform.OS === "android" ? renderAndroidDatePicker() : renderIOSDatePicker()}

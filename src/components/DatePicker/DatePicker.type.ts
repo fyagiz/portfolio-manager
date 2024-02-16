@@ -5,4 +5,5 @@ export type DatePickerPropsType = {
   textInputStyle: StyleProp<TextStyle>;
   date: Date;
   onChange: (selectedDate: Date) => void;
+  testID: string;
 };

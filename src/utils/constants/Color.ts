@@ -23,6 +23,7 @@ const COLOR = {
   profitColor: PALETTE.salem,
   lossColor: PALETTE.milanoRed,
   loadingBackgroundColor: PALETTE.black,
+  datePickerTextColor: PALETTE.black,
 };
 
 export default COLOR;

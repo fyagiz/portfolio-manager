@@ -43,23 +43,67 @@ exports[`InvestmentCard Component Unit Tests should render correctly 1`] = `
       },
     ]
   }
-  testID="pressable"
+  testID="testInvestmentCardPressable"
 >
   <Text
-    testID="investmentName"
+    testID="testInvestmentCardInvestmentName"
   >
     Test Fund
   </Text>
-  <Text
-    testID="profit"
+  <View
+    style={
+      {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
   >
-    5000 TL
-  </Text>
-  <Text
-    testID="profitPercentage"
-  >
-    % 
-    5
-  </Text>
+    <View
+      style={
+        {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        testID="testInvestmentCardProfitText"
+      >
+        Profit: 
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#AA1704",
+          }
+        }
+        testID="testInvestmentCardProfitNumber"
+      >
+        5000 TL
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Text
+        testID="testInvestmentCardPercentageText"
+      >
+        % 
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#04AA17",
+          }
+        }
+        testID="testInvestmentCardPercentageNumber"
+      >
+        5
+      </Text>
+    </View>
+  </View>
 </View>
 `;

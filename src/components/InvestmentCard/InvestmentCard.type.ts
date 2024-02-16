@@ -7,4 +7,5 @@ export type InvestmentCardPropsType = {
   onPress?: (event: GestureResponderEvent) => void;
   onLongPress?: (event: GestureResponderEvent) => void;
   testOnly_pressed?: boolean;
+  testID: string;
 };

@@ -6,14 +6,20 @@ exports[`Loading Component Unit Tests should render correctly 1`] = `
   transparent={true}
   visible={true}
 >
-  <ActivityIndicator
+  <View
     style={
       {
         "alignItems": "center",
+        "backgroundColor": "#000000",
         "flex": 1,
         "justifyContent": "center",
+        "opacity": 0.32,
       }
     }
-  />
+  >
+    <ActivityIndicator
+      size="large"
+    />
+  </View>
 </Modal>
 `;

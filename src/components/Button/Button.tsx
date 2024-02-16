@@ -4,7 +4,7 @@ import styles from "./Button.style";
 import { COLOR } from "../../utils/constants";
 
 const Button = (props: ButtonPropsType) => {
-  const { text, onPress, testOnly_pressed, containerStyle, textStyle } = props;
+  const { text, onPress, testOnly_pressed, containerStyle, textStyle, testID } = props;
   const { buttonColor, pressedButtonColor } = COLOR;
   return (
     <Pressable
@@ -16,10 +16,10 @@ const Button = (props: ButtonPropsType) => {
         containerStyle,
       ]}
       onPress={onPress}
-      testID="pressable"
+      testID={`${testID}ButtonPressable`}
       testOnly_pressed={testOnly_pressed}
     >
-      <Text testID="buttonText" style={textStyle}>
+      <Text testID={`${testID}ButtonText`} style={textStyle}>
         {text}
       </Text>
     </Pressable>

@@ -46,10 +46,10 @@ exports[`Button Component Unit Tests should render correctly 1`] = `
       undefined,
     ]
   }
-  testID="pressable"
+  testID="testButtonPressable"
 >
   <Text
-    testID="buttonText"
+    testID="testButtonText"
   >
     Test Button
   </Text>

@@ -6,4 +6,5 @@ export type ButtonPropsType = {
   testOnly_pressed?: boolean;
   containerStyle?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
+  testID: string;
 };

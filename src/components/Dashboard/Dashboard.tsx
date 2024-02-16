@@ -70,7 +70,7 @@ const Dashboard = () => {
     const profit = calculateProfit(item);
     return (
       <Swipeable ref={ref => (swipeableRefs.current[item.stockCode] = ref!)} renderRightActions={renderRightActions} onSwipeableOpen={() => onSwipeableOpen(item.stockCode)}>
-        <InvestmentCard investmentName={item.stockCode} profit={profit.value} profitPercentage={profit.percentage} />
+        <InvestmentCard testID={item.stockCode} investmentName={item.stockCode} profit={profit.value} profitPercentage={profit.percentage} />
       </Swipeable>
     );
   };

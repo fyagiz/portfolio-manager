@@ -11,7 +11,7 @@ export default StyleSheet.create({
     borderRadius: STYLE.borderRadius,
     padding: STYLE.padding,
   },
-  textInputContainer: {
+  inputContainer: {
     padding: STYLE.padding,
   },
   buttonContainer: {

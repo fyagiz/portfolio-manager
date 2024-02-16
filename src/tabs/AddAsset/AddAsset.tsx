@@ -9,7 +9,7 @@ import { addStock } from "../../store/slices";
 import { getBistStockPrice } from "../../utils/api";
 import { setIsLoading } from "../../store/slices/appSlice";
 import { AssetHistoryType } from "../../utils/assetTypes";
-import { getToday } from "../../utils/helpers";
+import { getDateString, getToday } from "../../utils/helpers";
 import DatePicker from "../../components/DatePicker";
 
 const AddAsset = () => {
@@ -20,7 +20,7 @@ const AddAsset = () => {
   const [amount, setAmount] = useState<string>("");
   const [price, setPrice] = useState<string>("");
   const [commision, setCommision] = useState<string>("");
-  const [date, setDate] = useState<Date>(new Date());
+  const [date, setDate] = useState<Date>(getToday());
   const dispatch = useAppDispatch();
 
   const clearInputFields = useCallback(() => {
@@ -28,7 +28,8 @@ const AddAsset = () => {
     if (amount.length > 0) setAmount("");
     if (price.length > 0) setPrice("");
     if (commision.length > 0) setCommision("");
-  }, [amount.length, commision.length, price.length, stockCode.length]);
+    if (date !== getToday()) setDate(getToday());
+  }, [amount.length, commision.length, date, price.length, stockCode.length]);
 
   useEffect(() => {
     const blurListener = navigation.addListener("blur", () => {
@@ -122,7 +123,7 @@ const AddAsset = () => {
         amount: stockAmount,
         assetCode: stockCode,
         commision: Number(commision),
-        date: getToday(),
+        date: getDateString(date),
         price: Number(price),
         totalCost,
         transactionType: "BUY",
@@ -153,7 +154,7 @@ const AddAsset = () => {
   return (
     <Pressable style={styles.container} onPress={() => Keyboard.dismiss()} android_disableSound>
       <View style={styles.insideContainer}>
-        <View style={styles.textInputContainer}>
+        <View style={styles.inputContainer}>
           <Text testID="stockNameText">Stock Name</Text>
           <TextInput
             testID="stockNameTextInput"

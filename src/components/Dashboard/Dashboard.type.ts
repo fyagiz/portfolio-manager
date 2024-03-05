@@ -1,4 +1,6 @@
-export type SwipeableRefsType = Record<string, any>;
+import { Swipeable } from "react-native-gesture-handler";
+
+export type SwipeableRefsType = Record<string, Swipeable>;
 
 export type FlatListItemType = {
   stockCode: string;

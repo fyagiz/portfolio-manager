@@ -10,13 +10,16 @@ export default StyleSheet.create({
   swipeContainer: {
     flexDirection: "row",
   },
-  swipeDeleteContainer: {
+  swipeIconContainer: {
     margin: STYLE.margin,
     padding: STYLE.padding,
     borderRadius: STYLE.borderRadius,
-  },
-  swipeDeleteElement: {
     justifyContent: "center",
     alignItems: "center",
+  },
+  textInputStyle: {
+    borderRadius: STYLE.borderRadius,
+    borderWidth: STYLE.borderWidth,
+    padding: STYLE.padding,
   },
 });

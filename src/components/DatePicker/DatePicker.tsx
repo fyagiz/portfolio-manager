@@ -79,11 +79,7 @@ const DatePicker = (props: DatePickerPropsType) => {
   return (
     <View>
       <Text>{text}</Text>
-      <Pressable
-        onPress={() => {
-          setIsVisible(true);
-        }}
-      >
+      <Pressable onPress={() => setIsVisible(true)}>
         <View pointerEvents="none">
           <TextInput style={[styles.textInputStyle, textInputStyle]} editable={false} value={getDateString(date)} />
         </View>

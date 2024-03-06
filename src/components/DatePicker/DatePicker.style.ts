@@ -7,7 +7,6 @@ export default StyleSheet.create({
     justifyContent: "flex-end",
   },
   innerIOSContainer: {
-    opacity: 1,
     backgroundColor: "black",
     borderRadius: STYLE.borderRadius,
   },

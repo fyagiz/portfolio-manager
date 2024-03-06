@@ -20,6 +20,8 @@ const COLOR = {
   tabBarActiveTintColor: PALETTE.aqua,
   tabBarInactiveTintColor: PALETTE.white,
   swipeDeleteIconColor: PALETTE.white,
+  swipeAddIconColor: PALETTE.salem,
+  swipeRemoveIconColor: PALETTE.milanoRed,
   profitColor: PALETTE.salem,
   lossColor: PALETTE.milanoRed,
   loadingBackgroundColor: PALETTE.black,

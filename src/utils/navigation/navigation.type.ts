@@ -1,6 +1,8 @@
-const RootBottomTabParamList = {
+import { BottomTabNavigationProp } from "@react-navigation/bottom-tabs";
+
+export const RootBottomTabParamList = {
   Portfolio: undefined,
   AddAsset: undefined,
 };
 
-export default RootBottomTabParamList;
+export type BottomTabNavigationType = BottomTabNavigationProp<typeof RootBottomTabParamList>;

@@ -2,7 +2,7 @@ import { Alert, Keyboard, Pressable, Text, TextInput, View } from "react-native"
 import styles from "./AddAsset.style";
 import { useCallback, useEffect, useState } from "react";
 import Button from "../../components/Button";
-import { HandleFormatInputFormatType, NavigationType } from "./AddAsset.type";
+import { HandleFormatInputFormatType } from "./AddAsset.type";
 import { useNavigation } from "@react-navigation/native";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { addStock } from "../../store/slices";
@@ -11,9 +11,10 @@ import { setIsLoading } from "../../store/slices/appSlice";
 import { AssetHistoryType } from "../../utils/assetTypes";
 import { getDateString, getToday } from "../../utils/helpers";
 import DatePicker from "../../components/DatePicker";
+import { BottomTabNavigationType } from "../../utils/navigation";
 
 const AddAsset = () => {
-  const navigation = useNavigation<NavigationType>();
+  const navigation = useNavigation<BottomTabNavigationType>();
   const stockState = useAppSelector(state => state.stockState);
   const { stocks, bistStocks } = stockState;
   const [stockCode, setStockCode] = useState<string>("");
@@ -188,11 +189,11 @@ const AddAsset = () => {
             style={styles.textInputStyle}
             keyboardType="decimal-pad"
           />
-          <DatePicker text="Date" date={date} onChange={(selectedDate: Date) => setDate(selectedDate)} textInputStyle={styles.textInputStyle} />
+          <DatePicker testID="datePicker" text="Date" date={date} onChange={(selectedDate: Date) => setDate(selectedDate)} textInputStyle={styles.textInputStyle} />
         </View>
         <View style={styles.buttonContainer}>
           <View>
-            <Button text="Add" containerStyle={styles.buttonStyle} onPress={addAsset} />
+            <Button testID="addAssetButton" text="Add" containerStyle={styles.buttonStyle} onPress={addAsset} />
           </View>
         </View>
       </View>

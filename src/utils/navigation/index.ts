@@ -1,3 +1,3 @@
-import RootBottomTabParamList from "./navigation.type";
+import { BottomTabNavigationType, RootBottomTabParamList } from "./navigation.type";
 
-export { RootBottomTabParamList };
+export { RootBottomTabParamList, BottomTabNavigationType };

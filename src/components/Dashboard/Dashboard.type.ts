@@ -1,5 +1,4 @@
 import { Swipeable } from "react-native-gesture-handler";
-import { BottomTabNavigationType } from "../../utils/navigation";
 
 export type SwipeableRefsType = Record<string, Swipeable>;
 
@@ -9,6 +8,6 @@ export type FlatListItemType = {
   profitPercentage: string;
 };
 
-export type DashboardPropsType = {
-  navigation: BottomTabNavigationType;
+export type DashboardType = {
+  closeAllOpenedSwipeables: () => void;
 };

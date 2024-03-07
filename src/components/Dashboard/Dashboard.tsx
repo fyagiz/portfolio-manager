@@ -7,11 +7,10 @@ import { GestureHandlerRootView, Swipeable } from "react-native-gesture-handler"
 import { renderIcon } from "../../utils/helpers";
 import { COLOR, STYLE } from "../../utils/constants";
 import { deleteStock } from "../../store/slices";
-import { useEffect, useRef, useState } from "react";
-import { DashboardPropsType, SwipeableRefsType } from "./Dashboard.type";
+import { ForwardedRef, forwardRef, useImperativeHandle, useRef, useState } from "react";
+import { DashboardType, SwipeableRefsType } from "./Dashboard.type";
 
-const Dashboard = (props: DashboardPropsType) => {
-  const { navigation } = props;
+const Dashboard = forwardRef<DashboardType>((_, dashbordRef: ForwardedRef<DashboardType>) => {
   const stockState = useAppSelector(state => state.stockState);
   const { stocks } = stockState;
   const dispatch = useAppDispatch();
@@ -21,13 +20,11 @@ const Dashboard = (props: DashboardPropsType) => {
     stockCode: "",
   });
 
-  useEffect(() => {
-    const blurListener = navigation.addListener("blur", () => {
+  useImperativeHandle(dashbordRef, () => ({
+    closeAllOpenedSwipeables: () => {
       closeAllOpenedSwipeables();
-    });
-
-    return blurListener;
-  }, [navigation]);
+    },
+  }));
 
   const renderRightActions = (stockCode: string) => {
     return (
@@ -155,6 +152,6 @@ const Dashboard = (props: DashboardPropsType) => {
       </GestureHandlerRootView>
     </Pressable>
   );
-};
+});
 
 export default Dashboard;

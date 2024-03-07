@@ -4,7 +4,7 @@ import InputFieldValidations from "./validations/InputField.validation";
 import styles from "./InputField.style";
 
 const InputField = (props: InputFieldPropsType) => {
-  const { testID, textInputProps, inputText, mode } = props;
+  const { testID, textInputProps, inputText, mode, inputContainerStyle } = props;
   let keyboardType: KeyboardType;
 
   const onChangeTextFunction = (newValue: string) => {
@@ -32,7 +32,7 @@ const InputField = (props: InputFieldPropsType) => {
   }
 
   return (
-    <View style={styles.inputContainer}>
+    <View style={inputContainerStyle}>
       <Text testID={`${testID}InputField`}>{inputText}</Text>
       <TextInput
         testID={`${testID}TextInput`}

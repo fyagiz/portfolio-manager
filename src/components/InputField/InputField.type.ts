@@ -1,4 +1,4 @@
-import { TextInputProps } from "react-native";
+import { StyleProp, TextInputProps, ViewStyle } from "react-native";
 
 export type InputFieldModeType = "integer" | "float" | "capitalLetter";
 
@@ -7,4 +7,5 @@ export type InputFieldPropsType = {
   inputText: string;
   mode: InputFieldModeType;
   textInputProps: TextInputProps;
+  inputContainerStyle?: StyleProp<ViewStyle>;
 };

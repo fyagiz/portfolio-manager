@@ -1,8 +1,8 @@
 import { Alert, Keyboard, View } from "react-native";
-import { AddFormPropsType } from "./AddForm.type";
+import { AddFormPropsType, AddFormType } from "./AddForm.type";
 import styles from "./AddForm.style";
 import InputField from "../InputField";
-import { useState } from "react";
+import { ForwardedRef, forwardRef, useCallback, useImperativeHandle, useState } from "react";
 import { getDateString, getToday } from "../../utils/helpers";
 import DatePicker from "../DatePicker";
 import Button from "../Button";
@@ -12,7 +12,7 @@ import { getBistStockPrice } from "../../utils/api";
 import { AssetHistoryType } from "../../utils/assetTypes";
 import { addStock } from "../../store/slices";
 
-const AddForm = (props: AddFormPropsType) => {
+const AddForm = forwardRef<AddFormType, AddFormPropsType>((props: AddFormPropsType, ref: ForwardedRef<AddFormType>) => {
   const { testID } = props;
   const stockState = useAppSelector(state => state.stockState);
   const { stocks, bistStocks } = stockState;
@@ -23,13 +23,19 @@ const AddForm = (props: AddFormPropsType) => {
   const [commision, setCommision] = useState<string>("");
   const [date, setDate] = useState<Date>(getToday());
 
-  const clearInputFields = () => {
+  const clearInputFields = useCallback(() => {
     if (stockCode.length > 0) setStockCode("");
     if (amount.length > 0) setAmount("");
     if (price.length > 0) setPrice("");
     if (commision.length > 0) setCommision("");
     if (date !== getToday()) setDate(getToday());
-  };
+  }, [amount.length, commision.length, date, price.length, stockCode.length]);
+
+  useImperativeHandle(ref, () => ({
+    clearInputFields: () => {
+      clearInputFields();
+    },
+  }));
 
   const isAssetValid = () => {
     const isStockCodeValid = !!bistStocks.find(stock => stock.stockCode === stockCode);
@@ -122,6 +128,6 @@ const AddForm = (props: AddFormPropsType) => {
       </View>
     </View>
   );
-};
+});
 
 export default AddForm;

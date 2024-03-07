@@ -16,6 +16,7 @@ const AddAsset = () => {
 
     return blurListener;
   }, [navigation]);
+
   return (
     <Pressable style={styles.container} onPress={() => Keyboard.dismiss()} android_disableSound>
       <AddForm ref={addFormRef} testID="AddAsset" />

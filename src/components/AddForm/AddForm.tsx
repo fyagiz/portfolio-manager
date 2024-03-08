@@ -72,12 +72,11 @@ const AddForm = forwardRef<AddFormType, AddFormPropsType>((props: AddFormPropsTy
     const isValid = isAssetValid();
 
     if (isValid) {
+      dispatch(setIsLoading(true));
       const stockAmount = Number(amount);
       const totalCost = Number(price) * stockAmount + Number(commision);
       const stockName = bistStocks.find(stock => stock.stockCode === stockCode)?.stockName;
-      dispatch(setIsLoading(true));
       const stockPrice = await getBistStockPrice(stockCode);
-      dispatch(setIsLoading(false));
       const historyObject: AssetHistoryType = {
         amount: stockAmount,
         assetCode: stockCode,
@@ -104,6 +103,7 @@ const AddForm = forwardRef<AddFormType, AddFormPropsType>((props: AddFormPropsTy
           onPress: () => {
             Keyboard.dismiss();
             clearInputFields();
+            dispatch(setIsLoading(false));
           },
         },
       ]);

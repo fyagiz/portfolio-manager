@@ -1,14 +1,15 @@
-import { Alert, FlatList, Modal, Pressable, Text, TextInput, View } from "react-native";
+import { Alert, FlatList, Modal, Pressable, View } from "react-native";
 import InvestmentCard from "../InvestmentCard";
 import styles from "./Dashboard.style";
 import { useAppDispatch, useAppSelector } from "../../utils/hooks";
 import { StockType } from "../../utils/assetTypes";
 import { GestureHandlerRootView, Swipeable } from "react-native-gesture-handler";
 import { renderIcon } from "../../utils/helpers";
-import { COLOR, STYLE } from "../../utils/constants";
+import { COLOR } from "../../utils/constants";
 import { deleteStock } from "../../store/slices";
-import { ForwardedRef, forwardRef, useImperativeHandle, useRef, useState } from "react";
+import { ForwardedRef, forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import { DashboardType, SwipeableRefsType } from "./Dashboard.type";
+import AddForm from "../AddForm";
 
 const Dashboard = forwardRef<DashboardType>((_, dashbordRef: ForwardedRef<DashboardType>) => {
   const stockState = useAppSelector(state => state.stockState);
@@ -25,6 +26,10 @@ const Dashboard = forwardRef<DashboardType>((_, dashbordRef: ForwardedRef<Dashbo
       closeAllOpenedSwipeables();
     },
   }));
+
+  useEffect(() => {
+    if (addStockFromIconState.isVisible) closeAllOpenedSwipeables();
+  }, [addStockFromIconState.isVisible]);
 
   const renderRightActions = (stockCode: string) => {
     return (
@@ -109,22 +114,22 @@ const Dashboard = forwardRef<DashboardType>((_, dashbordRef: ForwardedRef<Dashbo
     );
   };
 
+  const onClickOutsideModal = (isComingFromAddStockFromIconModal: boolean) => {
+    if (isComingFromAddStockFromIconModal) {
+      setAddStockFromIconState(prevState => ({ ...prevState, isVisible: false }));
+    } else {
+    }
+  };
+
   const renderAddStockFromIconModal = () => {
     return (
-      <View>
-        <Modal transparent animationType="slide">
-          <Pressable style={{ flex: 1, justifyContent: "flex-end" }} onPress={() => setAddStockFromIconState(prevState => ({ ...prevState, isVisible: false }))}>
-            <View style={{ borderWidth: STYLE.borderWidth, borderRadius: STYLE.borderRadius, height: "50%" }}>
-              <Text testID="amountText">Amount</Text>
-              <TextInput testID="amountTextInput" style={styles.textInputStyle} keyboardType="number-pad" />
-              <Text testID="priceText">Price</Text>
-              <TextInput testID="priceTextInput" style={styles.textInputStyle} keyboardType="decimal-pad" />
-              <Text testID="comissionText">Commission</Text>
-              <TextInput testID="comissionTextInput" style={styles.textInputStyle} keyboardType="decimal-pad" />
-            </View>
+      <Modal transparent animationType="slide">
+        <Pressable style={styles.modalContainer} onPress={() => onClickOutsideModal(true)}>
+          <Pressable style={styles.modalInnerContainer}>
+            <AddForm testID="addStockFromIconModal" />
           </Pressable>
-        </Modal>
-      </View>
+        </Pressable>
+      </Modal>
     );
   };
 
@@ -146,9 +151,9 @@ const Dashboard = forwardRef<DashboardType>((_, dashbordRef: ForwardedRef<Dashbo
 
   return (
     <Pressable style={styles.container} onPress={closeAllOpenedSwipeables}>
-      {addStockFromIconState.isVisible && renderAddStockFromIconModal()}
       <GestureHandlerRootView>
         <FlatList data={stocks} renderItem={renderItem} keyExtractor={stock => stock.stockCode} />
+        {addStockFromIconState.isVisible && renderAddStockFromIconModal()}
       </GestureHandlerRootView>
     </Pressable>
   );

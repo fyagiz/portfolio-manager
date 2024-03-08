@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { STYLE } from "../../utils/constants";
+import { COLOR, STYLE } from "../../utils/constants";
 
 export default StyleSheet.create({
   container: {
@@ -16,6 +16,17 @@ export default StyleSheet.create({
     borderRadius: STYLE.borderRadius,
     justifyContent: "center",
     alignItems: "center",
+  },
+  modalContainer: {
+    flex: 1,
+    paddingVertical: "35%",
+  },
+  modalInnerContainer: {
+    borderWidth: STYLE.borderWidth,
+    borderRadius: STYLE.borderRadius,
+    backgroundColor: COLOR.addStockFromIconColor,
+    margin: STYLE.margin,
+    padding: STYLE.padding,
   },
   textInputStyle: {
     borderRadius: STYLE.borderRadius,

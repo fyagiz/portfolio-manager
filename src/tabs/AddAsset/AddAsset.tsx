@@ -1,4 +1,4 @@
-import { Keyboard, Pressable } from "react-native";
+import { Keyboard, Pressable, View } from "react-native";
 import styles from "./AddAsset.style";
 import AddForm, { AddFormType } from "../../components/AddForm";
 import { useEffect, useRef } from "react";
@@ -19,7 +19,9 @@ const AddAsset = () => {
 
   return (
     <Pressable style={styles.container} onPress={() => Keyboard.dismiss()} android_disableSound>
-      <AddForm ref={addFormRef} testID="AddAsset" />
+      <View style={styles.insideContainer}>
+        <AddForm ref={addFormRef} testID="AddAsset" />
+      </View>
     </Pressable>
   );
 };

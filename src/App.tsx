@@ -76,7 +76,7 @@ const App = () => {
       setBistStocksIsReady(true);
     };
     prepareBistStocks();
-  });
+  }, []);
 
   const onLayoutRootView = useCallback(async () => {
     if (bistStocksIsReady) {

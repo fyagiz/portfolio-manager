@@ -7,4 +7,4 @@ To run this app you need to expo. You might want to check [Expo Documentation](h
 
 In addition, you need to backend service to get stock prices. You can add them in .env file "EXPO_PUBLIC_BIST_STOCKS_API" "EXPO_PUBLIC_BIST_STOCK_API"
 
-<img src="./emptyPortfolio.jpeg" width="200"/> <img src="./addAssetScreen.jpeg" width="200"/> <img src="./addAssetDatePickerIOS.jpeg" width="200"/> <img src="./addAssetDatePickerAndroid.png" width="200"/> <img src="./addAssetPopup.jpeg" width="200"/> <img src="./portfolioWithStock.jpeg" width="200"/> <img src="./swipeStockCard.jpeg" width="200"/> <img src="./deletePopup.jpeg" width="200"/>
+<img src="./images/emptyPortfolio.jpeg" width="200"/> <img src="./images/addAssetScreen.jpeg" width="200"/> <img src="./images/addAssetDatePickerIOS.jpeg" width="200"/> <img src="./images/addAssetDatePickerAndroid.png" width="200"/> <img src="./images/addAssetPopup.jpeg" width="200"/> <img src="./images/portfolioWithStock.jpeg" width="200"/> <img src="./images/swipeStockCard.jpeg" width="200"/> <img src="./images/deletePopup.jpeg" width="200"/>
